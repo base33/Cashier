@@ -1,0 +1,8 @@
+packages/
+.user
+obj/
+bin/
+.suo
+app_data/logs/
+app_data/cache/
+app_data/TEMP/

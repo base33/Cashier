@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="PaymentModule:Stripe:Public" value="{{INSERT STRIPE PUBLIC KEY HERE}}" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:Secret" value="{{INSERT STRIPE SECRET KEY HERE}}" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:CardPaymentUrl" value="pay-by-card" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:CardPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:DirectDebitPaymentUrl" value="set-up-direct-debit" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:DirectDebitPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="PaymentModule:Stripe:LiveMode" value="false" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+</configuration>

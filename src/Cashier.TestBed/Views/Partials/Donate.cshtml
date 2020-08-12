@@ -1,0 +1,27 @@
+﻿@model Cashier.TestBed.Controllers.DonationFormModel
+
+
+    <div>
+        @using (Html.BeginUmbracoForm("HandleDonationForm", "DonationFormSurface"))
+        {
+            <div>
+                @Html.LabelFor(m => m.Amount)
+                @Html.TextBoxFor(m => m.Amount)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+            </div>
+
+            <input type="submit" value="Submit" />
+        }
+
+    </div>

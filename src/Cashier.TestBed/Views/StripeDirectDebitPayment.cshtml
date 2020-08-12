@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="col-md-12">
+            <article>
+                <h1>Loading</h1>
+            </article>
+        </div>
+    </div>
+
+</section>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    var stripe = Stripe("@(System.Configuration.ConfigurationManager.AppSettings["Cashier:Stripe:Public"])");
+
+    stripe.redirectToCheckout({
+        // Make the id field from the Checkout Session creation API response
+        // available to this file, so you can provide it as argument here
+        // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+        sessionId: '@ViewBag.StripeSessionId'
+    }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+    });
+</script>

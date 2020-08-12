@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <connectionStrings>
+    <remove name="PaymentModuleDb" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    <add name="PaymentModuleDb" connectionString="{INSERT CONNECTION STRING HERE (umbracoDbDSN)}" providerName="System.Data.SqlClient" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  </connectionStrings>
+</configuration>

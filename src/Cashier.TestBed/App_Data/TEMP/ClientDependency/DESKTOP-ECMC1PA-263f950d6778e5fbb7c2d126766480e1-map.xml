@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<map>
+  <item key="L3VtYnJhY28vYXNzZXRzL2Nzcy91bWJyYWNvLmNzczsvdW1icmFjby9saWIvYm9vdHN0cmFwLXNvY2lhbC9ib290c3RyYXAtc29jaWFsLmNzczsvdW1icmFjby9saWIvZm9udC1hd2Vzb21lL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzczs" file="C:\Users\craig\source\repos\PaymentModule\PaymentModule.TestBed\App_Data\TEMP\ClientDependency\1_3c3554a5aced4a8e9c8ebff28320c2c4.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/assets/css/umbraco.css" />
+      <file name="/umbraco/lib/bootstrap-social/bootstrap-social.css" />
+      <file name="/umbraco/lib/font-awesome/css/font-awesome.min.css" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL1N0YXJ0ZXJraXQvdG91cnMvdmlld3MvbWVkaWFsaWJyYXJ5L3VwbG9hZGltYWdlcy5jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy9TdGFydGVya2l0L3RvdXJzL3ZpZXdzL3ZhbGlkYXRldGV4dC5jb250cm9sbGVyLmpzOw" file="C:\Users\craig\source\repos\PaymentModule\PaymentModule.TestBed\App_Data\TEMP\ClientDependency\1_b155b67f2ec649ce8fe4ae547cb473ea.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/App_Plugins/Starterkit/tours/views/medialibrary/uploadimages.controller.js" />
+      <file name="/App_Plugins/Starterkit/tours/views/validatetext.controller.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL2pxdWVyeS9qcXVlcnkubWluLmpzOy91bWJyYWNvL2xpYi9qcXVlcnktdWkvanF1ZXJ5LXVpLm1pbi5qczsvdW1icmFjby9saWIvanF1ZXJ5LXVpLXRvdWNoLXB1bmNoL2pxdWVyeS51aS50b3VjaC1wdW5jaC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXIvYW5ndWxhci5qczsvdW1icmFjby9saWIvdW5kZXJzY29yZS91bmRlcnNjb3JlLW1pbi5qczsvdW1icmFjby9saWIvbW9tZW50L21vbWVudC5taW4uanM7L3VtYnJhY28vbGliL2ZsYXRwaWNrci9mbGF0cGlja3IuanM7L3VtYnJhY28vbGliL2FuaW1lanMvYW5pbWUubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXJvdXRlL2FuZ3VsYXItcm91dGUuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY29va2llcy9hbmd1bGFyLWNvb2tpZXMuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItYXJpYS9hbmd1bGFyLWFyaWEubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXRvdWNoL2FuZ3VsYXItdG91Y2guanM7L3VtYnJhY28vbGliL2FuZ3VsYXItc2FuaXRpemUvYW5ndWxhci1zYW5pdGl6ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1hbmltYXRlL2FuZ3VsYXItYW5pbWF0ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1tZXNzYWdlcy9hbmd1bGFyLW1lc3NhZ2VzLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXVpLXNvcnRhYmxlL3NvcnRhYmxlLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLWR5bmFtaWMtbG9jYWxlL3RtaER5bmFtaWNMb2NhbGUubWluLmpzOy91bWJyYWNvL2xpYi9uZy1maWxlLXVwbG9hZC9uZy1maWxlLXVwbG9hZC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItbG9jYWwtc3RvcmFnZS9hbmd1bGFyLWxvY2FsLXN0b3JhZ2UubWluLmpzOy91bWJyYWNvL2xpYi9jaGFydC5qcy9jaGFydC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY2hhcnQuanMvYW5ndWxhci1jaGFydC5taW4uanM7L3VtYnJhY28vbGliL3VtYnJhY28vRXh0ZW5zaW9ucy5qczsvdW1icmFjby9saWIvdW1icmFjby9OYW1lc3BhY2VNYW5hZ2VyLmpzOy91bWJyYWNvL2xpYi91bWJyYWNvL0xlZ2FjeVNwZWVjaEJ1YmJsZS5qczsvdW1icmFjby9qcy9hcHAuanM7L3VtYnJhY28vanMvdW1icmFjby5yZXNvdXJjZXMuanM7L3VtYnJhY28vanMvdW1icmFjby5kaXJlY3RpdmVzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uZmlsdGVycy5qczsvdW1icmFjby9qcy91bWJyYWNvLnNlcnZpY2VzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uaW50ZXJjZXB0b3JzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uY29udHJvbGxlcnMuanM7L3VtYnJhY28vanMvcm91dGVzLmpzOy91bWJyYWNvL2pzL2luaXQuanM7L0FwcF9QbHVnaW5zL09zbU1hcHMvT3NtTWFwcy5jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy9TdGFydGVya2l0L2xlc3NvbnMuc2VydmljZS5qczsvQXBwX1BsdWdpbnMvU3RhcnRlcmtpdC9zdGFydGVya2l0aGVscC5jb250cm9sbGVyLmpzOw" file="C:\Users\craig\source\repos\PaymentModule\PaymentModule.TestBed\App_Data\TEMP\ClientDependency\1_438fdc70ec574deab3be9e3337ae20bc.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/jquery/jquery.min.js" />
+      <file name="/umbraco/lib/jquery-ui/jquery-ui.min.js" />
+      <file name="/umbraco/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" />
+      <file name="/umbraco/lib/angular/angular.js" />
+      <file name="/umbraco/lib/underscore/underscore-min.js" />
+      <file name="/umbraco/lib/moment/moment.min.js" />
+      <file name="/umbraco/lib/flatpickr/flatpickr.js" />
+      <file name="/umbraco/lib/animejs/anime.min.js" />
+      <file name="/umbraco/lib/angular-route/angular-route.js" />
+      <file name="/umbraco/lib/angular-cookies/angular-cookies.js" />
+      <file name="/umbraco/lib/angular-aria/angular-aria.min.js" />
+      <file name="/umbraco/lib/angular-touch/angular-touch.js" />
+      <file name="/umbraco/lib/angular-sanitize/angular-sanitize.js" />
+      <file name="/umbraco/lib/angular-animate/angular-animate.js" />
+      <file name="/umbraco/lib/angular-messages/angular-messages.js" />
+      <file name="/umbraco/lib/angular-ui-sortable/sortable.js" />
+      <file name="/umbraco/lib/angular-dynamic-locale/tmhDynamicLocale.min.js" />
+      <file name="/umbraco/lib/ng-file-upload/ng-file-upload.min.js" />
+      <file name="/umbraco/lib/angular-local-storage/angular-local-storage.min.js" />
+      <file name="/umbraco/lib/chart.js/chart.min.js" />
+      <file name="/umbraco/lib/angular-chart.js/angular-chart.min.js" />
+      <file name="/umbraco/lib/umbraco/Extensions.js" />
+      <file name="/umbraco/lib/umbraco/NamespaceManager.js" />
+      <file name="/umbraco/lib/umbraco/LegacySpeechBubble.js" />
+      <file name="/umbraco/js/app.js" />
+      <file name="/umbraco/js/umbraco.resources.js" />
+      <file name="/umbraco/js/umbraco.directives.js" />
+      <file name="/umbraco/js/umbraco.filters.js" />
+      <file name="/umbraco/js/umbraco.services.js" />
+      <file name="/umbraco/js/umbraco.interceptors.js" />
+      <file name="/umbraco/js/umbraco.controllers.js" />
+      <file name="/umbraco/js/routes.js" />
+      <file name="/umbraco/js/init.js" />
+      <file name="/App_Plugins/OsmMaps/OsmMaps.controller.js" />
+      <file name="/App_Plugins/Starterkit/lessons.service.js" />
+      <file name="/App_Plugins/Starterkit/starterkithelp.controller.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL3RpbnltY2UvdGlueW1jZS5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9wYXN0ZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvYW5jaG9yL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9jaGFybWFwL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy90YWJsZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvbGlzdHMvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2Fkdmxpc3QvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2hyL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9hdXRvbGluay9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvZGlyZWN0aW9uYWxpdHkvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL3RhYmZvY3VzL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9zZWFyY2hyZXBsYWNlL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9mdWxsc2NyZWVuL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9ub25lZGl0YWJsZS9wbHVnaW4ubWluLmpzOw" file="C:\Users\craig\source\repos\PaymentModule\PaymentModule.TestBed\App_Data\TEMP\ClientDependency\1_0a537d17cf0d4682b986de484ad9973f.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/tinymce/tinymce.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/paste/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/anchor/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/charmap/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/table/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/lists/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/advlist/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/hr/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/autolink/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/directionality/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/tabfocus/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/searchreplace/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/fullscreen/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/noneditable/plugin.min.js" />
+    </files>
+  </item>
+</map>

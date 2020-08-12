@@ -1,0 +1,128 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="col-md-12">
+            <article>
+                <h2>Pay now</h2>
+                <form id="stripe-payment">
+
+                    <label style="width:100%">
+                        <span>Card</span>
+                        <div id="card-number"></div>
+                        <div id="card-expiry"></div>
+                        <div id="card-cvc"></div>
+                    </label>
+                    <button type="submit" class="btn btn-success">Pay</button>
+                </form>
+            </article>
+            @if (ViewBag.TestMode)
+            {
+                <br />
+                <hr />
+                <article>
+                    <h2>Test Cards:</h2>
+                    <ul>
+                        <li><b>Card without 3DS</b> - 4242 4242 4242 4242 - <i>any expiry + cvc</i></li>
+                        <li><b>Card with 3DS</b>4000000000003220 - <i>any expiry + cvc</i></li>
+                    </ul>
+                </article>
+            }
+
+            @using (Html.BeginUmbracoForm("HandleCardPaymentComplete", "StripePostbackSurface", FormMethod.Post, new { id = "callback-form" }))
+            {
+                <input type="hidden" name="StripePaymentIntentId" id="StripePaymentIntentId" value="@ViewBag.StripePaymentIntentId" />
+                <input type="hidden" name="TransactionReference" value="@ViewBag.TransactionReference" />
+            }
+        </div>
+    </div>
+
+</section>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    var stripe = Stripe("@(System.Configuration.ConfigurationManager.AppSettings["Cashier:Stripe:Public"])");
+    var elements = stripe.elements({
+        fonts: [
+            {
+                family: 'Open Sans',
+                weight: 400,
+                src: 'local("Open Sans"), local("OpenSans"), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format("woff2")',
+                unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215',
+            },
+        ]
+    });
+
+    var cardNumber = elements.create('cardNumber');
+    cardNumber.mount('#card-number');
+
+    var cardExpiry = elements.create('cardExpiry');
+    cardExpiry.mount('#card-expiry');
+
+    var cardCvc = elements.create('cardCvc');
+    cardCvc.mount('#card-cvc');
+
+    function setOutcome(result) {
+        document.getElementById('callback-form').submit();
+    }
+
+
+    document.getElementById('stripe-payment').addEventListener('submit', function (e) {
+        e.preventDefault();
+        //stripe.createToken(card).then(setOutcome);
+        stripe.confirmCardPayment('@ViewBag.ClientSecret', {
+            payment_method: {
+                card: cardNumber
+            }
+        }).then(setOutcome)
+    });
+
+    //https://jsfiddle.net/ywain/5yz4z2yn/
+</script>
+
+<style type="text/css">
+    /**
+* The CSS shown here will not be introduced in the Quickstart guide, but
+* shows how you can use CSS to style your Element's container.
+*/
+    input,
+    .StripeElement {
+        height: 40px;
+        color: #32325d;
+        background-color: white;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+        padding-top: 10px;
+        margin-bottom: 19px;
+        padding-left: 10px;
+    }
+
+    input {
+        padding: 10px 12px;
+    }
+
+        input:focus,
+        .StripeElement--focus {
+            box-shadow: 0 1px 3px 0 #cfd7df;
+        }
+
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }
+</style>
