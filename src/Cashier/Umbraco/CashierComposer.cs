@@ -1,5 +1,4 @@
 ﻿using Cashier.Data;
-using Cashier.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +14,8 @@ namespace Cashier.Umbraco
         public void Compose(Composition composition)
         {
             composition.Register(typeof(IPaymentIntentRepository), typeof(PaymentIntentRepository), Lifetime.Request);
-            composition.Register<IPaymentService>(factory => {
-                return new PaymentService(factory.GetInstance<IPaymentIntentRepository>(), factory.Concrete as LightInject.ServiceContainer);
+            composition.Register<ICashier>(factory => {
+                return new CashierService(factory.GetInstance<IPaymentIntentRepository>(), factory.Concrete as LightInject.ServiceContainer);
                 }, Lifetime.Request);
 
             composition.Components().Append<CashierComponent>();

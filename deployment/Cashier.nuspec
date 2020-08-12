@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+	<metadata>
+		<id>Our.Umbraco.Cashier</id>
+		<version>1.0.1</version>
+		<title>Our.Umbraco.Cashier</title>
+		<authors>Craig Noble</authors>
+		<owners>Craig Noble</owners>
+		<licenseUrl>http://www.github.com/</licenseUrl>
+		<projectUrl>http://www.github.com/</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/base33/Cashier/master/docs/cash-register-576159_640.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Agnostic Payment System for Umbraco</description>
+		<releaseNotes>Initial Release</releaseNotes>
+    <dependencies>
+      <dependency id="RepoDb" version="1.11.6" />
+	  <dependency id="RepoDb.SqlServer" version="1.0.13" />
+    </dependencies>
+  </metadata>
+	<files>
+		<file src="..\src\Cashier\bin\debug\cashier.dll" target="lib" />
+		<file src="..\src\Cashier.TestBed\App_Plugins\cashier\**\*" target="content\app_plugins\cashier" />
+		<file src="..\src\Cashier\Web.config.install.xdt" target="content" />
+	</files>
+</package>

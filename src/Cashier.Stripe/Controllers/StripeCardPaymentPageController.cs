@@ -1,5 +1,4 @@
-﻿using Cashier.Services;
-using Stripe;
+﻿using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,9 +13,9 @@ namespace Cashier.Stripe.Controllers
 {
     public class StripeCardPaymentPageController : RenderMvcController
     {
-        protected IPaymentService PaymentService { get; }
+        protected ICashier PaymentService { get; }
 
-        public StripeCardPaymentPageController(IPaymentService paymentService)
+        public StripeCardPaymentPageController(ICashier paymentService)
         {
             PaymentService = paymentService;
         }
@@ -31,7 +30,7 @@ namespace Cashier.Stripe.Controllers
             var stripePI = new PaymentIntentCreateOptions
             {
                 Amount = (long)paymentIntent.Amount * 100,
-                Currency = "gbp",
+                Currency = paymentIntent.Currency,
                 PaymentMethodTypes = new List<string>
                 {
                     "card"

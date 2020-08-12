@@ -11,15 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Cashier.Services
+namespace Cashier
 {
-    public class PaymentService : IPaymentService
+    public class CashierService : ICashier
     {
         protected IPaymentIntentRepository Repository { get; }
         protected ICardPaymentGateway CardPaymentGateway { get; }
         protected IDirectDebitPaymentGateway DirectDebitPaymentGateway { get; }
 
-        public PaymentService(IPaymentIntentRepository repository, ServiceContainer serviceContainer)
+        public CashierService(IPaymentIntentRepository repository, ServiceContainer serviceContainer)
         {
             Repository = repository;
 

@@ -1,5 +1,4 @@
 ﻿using Cashier.Models;
-using Cashier.Services;
 using Stripe;
 using Stripe.Checkout;
 using System;
@@ -16,9 +15,9 @@ namespace Cashier.Stripe.Controllers
 {
     public class StripeDirectDebitPaymentPageController : RenderMvcController
     {
-        protected IPaymentService PaymentService { get; }
+        protected ICashier PaymentService { get; }
 
-        public StripeDirectDebitPaymentPageController(IPaymentService paymentService)
+        public StripeDirectDebitPaymentPageController(ICashier paymentService)
         {
             PaymentService = paymentService;
         }
@@ -139,7 +138,7 @@ namespace Cashier.Stripe.Controllers
                     Nickname = ddPriceName,
                     Product = product.Id,
                     UnitAmount = (long)paymentIntent.Amount * 100,
-                    Currency = "gbp",
+                    Currency = paymentIntent.Currency,
                     Recurring = new PriceRecurringOptions
                     {
                         Interval = "month",

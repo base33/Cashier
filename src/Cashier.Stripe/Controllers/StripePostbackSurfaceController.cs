@@ -1,5 +1,4 @@
 ﻿using Cashier.Models;
-using Cashier.Services;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ namespace Cashier.Stripe.Controllers
 {
     public class StripePostbackSurfaceController : SurfaceController
     {
-        protected IPaymentService PaymentService { get; }
+        protected ICashier PaymentService { get; }
 
-        public StripePostbackSurfaceController(IPaymentService paymentService)
+        public StripePostbackSurfaceController(ICashier paymentService)
         {
             PaymentService = paymentService;
         }

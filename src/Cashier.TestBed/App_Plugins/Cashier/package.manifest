@@ -1,0 +1,17 @@
+﻿{
+  //array of files we want to inject into the application on app_start
+  javascript: [
+    "~/App_Plugins/Cashier/cashier.controller.js"
+  ],
+  "css": [
+    "~/App_Plugins/Cashier/cashier.css"
+  ],
+  "dashboards": [
+    {
+      "alias": "Cashier",
+      "view": "/App_Plugins/cashier/cashier.html",
+      "sections": [ "content" ],
+      "weight": -10
+    }
+  ]
+}

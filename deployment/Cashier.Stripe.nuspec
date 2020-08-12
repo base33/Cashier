@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+	<metadata>
+		<id>Our.Umbraco.Cashier.Stripe</id>
+		<version>1.0.0</version>
+		<title>Our.Umbraco.Cashier.Stripe</title>
+		<authors>Craig Noble</authors>
+		<owners>Craig Noble</owners>
+		<licenseUrl>http://www.github.com/</licenseUrl>
+		<projectUrl>http://www.github.com/</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Stripe Implementation for Umbraco Cashier</description>
+		<releaseNotes>Initial Release</releaseNotes>
+    <dependencies>
+      <dependency id="Stripe.net" version="37.29.0" />
+    </dependencies>
+  </metadata>
+	<files>
+		<file src="..\src\Cashier.Stripe\bin\debug\Cashier.Stripe.dll" target="lib" />
+		<file src="..\src\Cashier.TestBed\Views\StripeCardPayment.cshtml" target="content\views" />
+		<file src="..\src\Cashier.TestBed\Views\StripeDirectDebitPayment.cshtml" target="content\views" />
+		<file src="..\src\Cashier.Stripe\Web.config.install.xdt" target="content" />
+		<file src="..\src\Cashier.Stripe\Web.config.uninstall.xdt" target="content" />
+	</files>
+</package>

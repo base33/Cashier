@@ -12,6 +12,7 @@ namespace Cashier.Models
         public string TransactionReference { get; set; }
         public string Description { get; set; }
         public double Amount { get; set; }
+        public string Currency { get; set; }
         public DateTime? DirectDebitStartDate { get; set; } = null;
         public string CustomerEmail { get; set; }
         public string CustomerAddressLines { get; set; }
@@ -42,18 +43,18 @@ namespace Cashier.Models
         /// <summary>
         /// Processing means the payment or direct debit setup hasn't finished yet
         /// </summary>
-        Processing,
+        Processing = 0,
         /// <summary>
         /// Succeeded means direct debit has been set up or payment has been taken
         /// </summary>
-        Succeeded,
+        Succeeded = 1,
         /// <summary>
         /// Failed or cancelled
         /// </summary>
-        Failed,
+        Failed = 2,
         /// <summary>
         /// Not heard back or changed
         /// </summary>
-        NothingYet
+        NothingYet = 4
     }
 }

@@ -28,6 +28,7 @@ namespace Cashier.Data
 		                        [TransactionReference] [nvarchar](max) NOT NULL,
 		                        [Description] [nvarchar](max) NULL,
 		                        [Amount] [decimal](18, 0) NOT NULL,
+                                [Currency] [nvarchar](max) NULL,
 		                        [DirectDebitStartDate] [datetime2](7) NULL,
 		                        [CustomerEmail] [nvarchar](max) NULL,
 		                        [CustomerAddressLines] [nvarchar](max) NULL,
@@ -85,6 +86,14 @@ namespace Cashier.Data
                 
 
             return paymentIntent;
+        }
+
+        public IEnumerable<PaymentIntent> GetAll(int skip, int take)
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CashierDb"].ConnectionString).EnsureOpen())
+            {
+                return connection.ExecuteQuery<PaymentIntent>("SELECT * FROM PaymentIntents").OrderByDescending(p => p.Created).Skip(skip).Take(take).ToList();
+            }
         }
     }
 }

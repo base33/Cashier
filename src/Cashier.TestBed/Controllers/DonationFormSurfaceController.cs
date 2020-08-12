@@ -1,5 +1,4 @@
 ﻿using Cashier.Models;
-using Cashier.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,9 +12,9 @@ namespace Cashier.TestBed.Controllers
 {
     public class DonationFormSurfaceController : SurfaceController
     {
-        public IPaymentService PaymentService { get; }
+        public ICashier PaymentService { get; }
 
-        public DonationFormSurfaceController(IPaymentService paymentService)
+        public DonationFormSurfaceController(ICashier paymentService)
         {
             PaymentService = paymentService;
         }
@@ -47,6 +46,7 @@ namespace Cashier.TestBed.Controllers
                     Guid.NewGuid().ToString(),
                     "a constituent ID",
                     model.Amount,
+                    "gbp",
                     "craig@mentordigital.co.uk",
                     CurrentPage.Url,
                      Umbraco.Content(1148).Url,
@@ -58,6 +58,7 @@ namespace Cashier.TestBed.Controllers
                     Guid.NewGuid().ToString(),
                     "a constituent ID",
                     model.Amount,
+                    "gbp",
                     DateTime.UtcNow,
                     "craig@mentordigital.co.uk",
                     "craig@mentordigital.co.uk",

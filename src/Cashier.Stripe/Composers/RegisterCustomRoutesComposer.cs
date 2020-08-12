@@ -51,7 +51,7 @@ namespace Cashier.Stripe.Composers
 
         public void Terminate()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

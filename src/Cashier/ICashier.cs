@@ -1,8 +1,8 @@
 ﻿using Cashier.Models;
 
-namespace Cashier.Services
+namespace Cashier
 {
-    public interface IPaymentService
+    public interface ICashier
     {
         PaymentIntentCreated CreateNewPaymentIntent(PaymentIntentRequest request);
         PaymentIntent GetPaymentIntentByTransactionRef(string transactionReference);

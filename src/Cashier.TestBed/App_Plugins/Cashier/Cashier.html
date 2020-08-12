@@ -1,0 +1,136 @@
+﻿<div ng-controller="cashierController as ctrl">
+    <h2>Cashier - Transactions</h2>
+    <div class="umb-table">
+        <div class="cashier umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell" style="flex: 0;margin: 0;padding: 0;"></div>
+                <div class="umb-table-cell" style="max-width: 23%;">
+                    Type
+                </div>
+                <div class="umb-table-cell">
+                    Transaction Reference
+                </div>
+                <div class="umb-table-cell">
+                    Amount
+                </div>
+                <div class="umb-table-cell">
+                    Status
+                </div>
+                <div class="umb-table-cell">
+                    Created
+                </div>
+            </div>
+        </div>
+        <div class="umb-table-body">
+            <div ng-repeat="item in ctrl.items">
+                <div class="umb-table-row">
+                    <div class="umb-table-cell" style="flex: 0;margin: 0;padding: 0;"></div>
+                    <div class="umb-table-cell">
+                        {{item.PaymentIntentType}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{item.TransactionReference}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{item.Amount | number: 2}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{item.PaymentStatus}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{item.Created}}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="umb-table-row">
+                    <div class="umb-table-cell" style="flex: 0;margin: 0;padding: 0;"></div>
+                    <div class="umb-table-cell">
+                        
+                    </div>
+                    <div class="umb-table-cell">
+                        
+                    </div>
+                    <div class="umb-table-cell">
+                        
+                    </div>
+                    <div class="umb-table-cell">
+                        
+                    </div>
+                    <div class="umb-table-cell">
+                        <button type="button" ng-click="ctrl.skip = ctrl.skip - ctrl.pageSize;ctrl.load(ctrl.skip, ctrl.pageSize)">Previous</button>
+                        <button type="button" ng-click="ctrl.skip = ctrl.skip + ctrl.pageSize;ctrl.load(ctrl.skip, ctrl.pageSize)">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .cashier.umb-table {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #d8d7d9;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            min-width: auto;
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+
+            .cashier.umb-table .umb-table-head {
+                background-color: #f3f3f5;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .cashier.umb-table .umb-table-body {
+            }
+
+            .cashier.umb-table .umb-table-row {
+                display: flex;
+                -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .cashier.umb-table .umb-table-cell {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+                -ms-flex: 1 1 1%;
+                flex: 1 1 1%;
+                position: relative;
+                margin: auto 14px;
+                padding: 6px 2px;
+                text-align: left;
+                overflow: hidden;
+            }
+
+            .cashier.umb-table .umb-table-body .umb-table-row {
+                color: #817f85;
+                border-top: 1px solid #d8d7d9;
+                cursor: pointer;
+                font-size: 14px;
+                position: relative;
+                min-height: 52px;
+            }
+
+        .cashier.umb-table__name {
+            -ms-flex: 1 1 25%;
+            flex: 1 1 25%;
+            max-width: 25%;
+        }
+    </style>

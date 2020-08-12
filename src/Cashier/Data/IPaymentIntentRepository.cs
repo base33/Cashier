@@ -1,4 +1,5 @@
-﻿using Cashier.Models;
+﻿using System.Collections.Generic;
+using Cashier.Models;
 
 namespace Cashier.Data
 {
@@ -8,5 +9,6 @@ namespace Cashier.Data
         PaymentIntent GetPaymentIntent(int id);
         PaymentIntent GetPaymentIntent(string transactionReference);
         PaymentIntent SavePaymentIntent(PaymentIntent paymentIntent);
+        IEnumerable<PaymentIntent> GetAll(int skip, int take);
     }
 }
