@@ -52,7 +52,7 @@ public class RegisterPaymentGatewayComposer : IUserComposer
 ### Step 5
 Now you are ready to take payment.  First of all, set up a controller that injects ICashier
 
-```
+```csharp
  public class DonationFormSurfaceController : SurfaceController
     {
         public ICashier Cashier { get; }
