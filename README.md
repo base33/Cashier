@@ -19,7 +19,7 @@ Contents:
 ## Installation and example of taking Card Payment
 ### Step 1
 Install via Nuget:
-```java
+```powershell
 install-packge Our.Umbraco.Cashier
 ```
 
@@ -31,7 +31,7 @@ Payment Intents are stored in a database.  This can point to your Umbraco databa
 
 ### Step 3
 Install the Cashier Payment Provider package:  (currently only stripe exists)
-```java
+```powershell
 install-package Our.Umbraco.Cashier.Stripe
 ```
 For instructions on how to finish the Stripe setup (configure keys etc.), click here.
@@ -40,13 +40,13 @@ For instructions on how to finish the Stripe setup (configure keys etc.), click 
 Create an Umbraco Composition to register your selected payment gateway.  You only need to register what your are planning to use.
 ```csharp
 public class RegisterPaymentGatewayComposer : IUserComposer
+{
+    public void Compose(Composition composition)
     {
-        public void Compose(Composition composition)
-        {
-            composition.Register(typeof(ICardPaymentGateway), typeof(StripeCardPaymentGateway), Lifetime.Request);
-            composition.Register(typeof(IDirectDebitPaymentGateway), typeof(StripeDirectDebitPaymentGateway), Lifetime.Request);
-        }
+        composition.Register(typeof(ICardPaymentGateway), typeof(StripeCardPaymentGateway), Lifetime.Request);
+        composition.Register(typeof(IDirectDebitPaymentGateway), typeof(StripeDirectDebitPaymentGateway), Lifetime.Request);
     }
+}
 ```
 
 ### Step 5
@@ -188,7 +188,7 @@ Password: qwe1234567
 
 ## Stripe
 Install the package:
-```java
+```powershell
 install-package Our.Umbraco.Cashier.Stripe
 ```
 
