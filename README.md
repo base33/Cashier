@@ -209,12 +209,12 @@ Stripe requires a public key and secret key.  Get these from the Stripe dashboar
 Configure the AppSettings:
 ```xml
 <add key="Cashier:Stripe:Public" value="{{INSERT STRIPE PUBLIC KEY HERE}}" />
-    <add key="Cashier:Stripe:Secret" value="{{INSERT STRIPE SECRET KEY HERE}}" />
-    <add key="Cashier:Stripe:CardPaymentUrl" value="pay-by-card" />
-    <add key="Cashier:Stripe:CardPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" />
-    <add key="Cashier:Stripe:DirectDebitPaymentUrl" value="set-up-direct-debit" xdt:Transform="InsertIfMissing" />
-    <add key="Cashier:Stripe:DirectDebitPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" />
-    <add key="Cashier:Stripe:LiveMode" value="false" />
+<add key="Cashier:Stripe:Secret" value="{{INSERT STRIPE SECRET KEY HERE}}" />
+<add key="Cashier:Stripe:CardPaymentUrl" value="pay-by-card" />
+<add key="Cashier:Stripe:CardPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" />
+<add key="Cashier:Stripe:DirectDebitPaymentUrl" value="set-up-direct-debit" xdt:Transform="InsertIfMissing" />
+<add key="Cashier:Stripe:DirectDebitPaymentPageVirtualNode" value="{{INSERT Payment Page virtual node ID}}" />
+<add key="Cashier:Stripe:LiveMode" value="false" />
 ```
 
 You can customise the views installed in the Views directory.
