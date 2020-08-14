@@ -187,7 +187,7 @@ Password: qwe1234567
 * Stripe
 
 
-# Stripe
+## Stripe
 Install the package:
 ```
 install-package Our.Umbraco.Cashier.Stripe
