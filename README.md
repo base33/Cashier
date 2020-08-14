@@ -1,5 +1,5 @@
 # Umbraco Cashier
-Cashier is a Payment Gateway agnostic Payment Provider for taking Card Payments and setting up Direct Debits with Umbraco.  The aim of this project is to be able to write the code once and provide a constistent code pattern for taking payments, no matter what Payment Provider is being used.
+Cashier is an agnostic payment gateway solution for taking Card Payments and setting up Direct Debits in sites built with Umbraco. The aim of this project is to be able to write payment solutions once that can be reused in any project, and provide a constistent code pattern for taking payments, no matter what Payment Provider is being used.
 
 During my time as a web developer, I have found most people don't want full fledged e-commerce systems.  More often than not, people want to be able to take donations, or pay for something that is pushed into an already-existing system they use to manage orders.  As a result, each implementation is unique but the payment integration stays the same.  Hence this package.
 
