@@ -53,36 +53,35 @@ public class RegisterPaymentGatewayComposer : IUserComposer
 Now you are ready to take payment.  First of all, set up a controller that injects ICashier
 
 ```csharp
- public class DonationFormSurfaceController : SurfaceController
+public class DonationFormSurfaceController : SurfaceController
+{
+    public ICashier Cashier { get; }
+
+    public DonationFormSurfaceController(ICashier cashier)
     {
-        public ICashier Cashier { get; }
-
-        public DonationFormSurfaceController(ICashier cashier)
-        {
-            Cashier = cashier;
-        }
-        
-        public ActionResult HandleDonation(DonationFormModel model)
-        {
-            //<---- we will take payment here
-        }
+        Cashier = cashier;
     }
-
+        
+    public ActionResult HandleDonation(DonationFormModel model)
+    {
+        //<---- we will take payment here
+    }
+}
 ```
 
 
 Now we have a controller, all we need to do is arrange for payment to be taken.  To do this, all we do is:
 ```csharp
 var paymentIntentRequest = PaymentIntentRequest.CreateCardPayment(
-                        transactionReference: transactionReference,
-                        description: "Donation",
-                        amount: model.Amount,
-                        customerEmail: model.Email,
-                        confirmationPageUrl: CurrentPage.Url,
-                        failurePageUrl: Umbraco.Content(1148).Url,
-                        callbackUrl: "/umbraco/surface/DonationFormSurface/HandleCallback",
-                        additionalData: ""
-                    );
+                                transactionReference: transactionReference,
+                                description: "Donation",
+                                amount: model.Amount,
+                                customerEmail: model.Email,
+                                confirmationPageUrl: CurrentPage.Url,
+                                failurePageUrl: Umbraco.Content(1148).Url,
+                                callbackUrl: "/umbraco/surface/DonationFormSurface/HandleCallback",
+                                additionalData: ""
+                          );
 
 //here I am going to store the donation model against the PaymentIntent so that I can load it later to complete the process
 paymentIntentRequest.AdditionalData = JsonConvert.SerializeObject(model);
@@ -127,24 +126,24 @@ Remember!  The success page should validate the PaymentIntent handshake in the e
 For Direct Debits, the code and process is exactly the same, except you create the ```PaymentIntentRequest``` like this:
 ```csharp
 var paymentIntentCreated = Cashier.CreateNewPaymentIntent(PaymentIntentRequest.CreateDirectDebit(
-                            transactionReference: transactionReference,
-                            description: "Donation Direct Debit",
-                            amount: model.Amount,
-                            customerEmail: model.Email,
-                            confirmationPageUrl: CurrentPage.Url,
-                            failurePageUrl: Umbraco.Content(1148).Url,
-                            callbackUrl: "/umbraco/surface/DonationFormSurface/HandleCallback",
-                            additionalData: jsonDonation,
-                            customerUniqueReference: model.Email,
-                            directDebitStartDate: FirstDayOfNextMonth(DateTime.UtcNow), //start date
-                            customerAddress: new CustomerAddress
-                            {
-                                AddressLines = model.AddressLines,
-                                City = model.Town,
-                                Country = "United Kingdom",
-                                Postcode = model.Postcode
-                            }
-                        ));
+                                transactionReference: transactionReference,
+                                description: "Donation Direct Debit",
+                                amount: model.Amount,
+                                customerEmail: model.Email,
+                                confirmationPageUrl: CurrentPage.Url,
+                                failurePageUrl: Umbraco.Content(1148).Url,
+                                callbackUrl: "/umbraco/surface/DonationFormSurface/HandleCallback",
+                                additionalData: jsonDonation,
+                                customerUniqueReference: model.Email,
+                                directDebitStartDate: FirstDayOfNextMonth(DateTime.UtcNow), //start date
+                                customerAddress: new CustomerAddress
+                                {
+                                    AddressLines = model.AddressLines,
+                                    City = model.Town,
+                                    Country = "United Kingdom",
+                                    Postcode = model.Postcode
+                                }
+                          ));
 ```
 
 
@@ -189,20 +188,20 @@ Password: qwe1234567
 
 ## Stripe
 Install the package:
-```
+```java
 install-package Our.Umbraco.Cashier.Stripe
 ```
 
 Register the card and direct debit payment gateways with Cashier
-```
+```csharp
 public class RegisterPaymentGatewayComposer : IUserComposer
+{
+    public void Compose(Composition composition)
     {
-        public void Compose(Composition composition)
-        {
-            composition.Register(typeof(ICardPaymentGateway), typeof(StripeCardPaymentGateway), Lifetime.Request);
-            composition.Register(typeof(IDirectDebitPaymentGateway), typeof(StripeDirectDebitPaymentGateway), Lifetime.Request);
-        }
+        composition.Register(typeof(ICardPaymentGateway), typeof(StripeCardPaymentGateway), Lifetime.Request);
+        composition.Register(typeof(IDirectDebitPaymentGateway), typeof(StripeDirectDebitPaymentGateway), Lifetime.Request);
     }
+}
 ```
 
 Stripe requires a public key and secret key.  Get these from the Stripe dashboard.  The Stripe Payment provider sets up a virtual routed Card and Direct Debit url that can be changed in the app settings.
