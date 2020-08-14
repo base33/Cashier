@@ -30,7 +30,7 @@ Payment Intents are stored in a database.  This can point to your Umbraco databa
 ```
 
 ### Step 3
-Install the Cashier Payment Provider package:  (currently only stripe exists)
+Install a Cashier Payment Provider solution package:  (currently only stripe exists)
 ```powershell
 install-package Our.Umbraco.Cashier.Stripe
 ```
