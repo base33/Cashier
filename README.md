@@ -43,8 +43,8 @@ public class RegisterPaymentGatewayComposer : IUserComposer
 {
     public void Compose(Composition composition)
     {
-        composition.Register(typeof(ICardPaymentGateway), typeof(StripeCardPaymentGateway), Lifetime.Request);
-        composition.Register(typeof(IDirectDebitPaymentGateway), typeof(StripeDirectDebitPaymentGateway), Lifetime.Request);
+        composition.RegisterCardPaymentGateway<StripeCardPaymentGateway>();
+        composition.RegisterDirectDebitPaymentGateway<StripeDirectDebitPaymentGateway>();
     }
 }
 ```
