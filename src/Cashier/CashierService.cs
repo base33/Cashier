@@ -34,6 +34,7 @@ namespace Cashier
                 TransactionReference = request.TransactionReference,
                 Description = request.Description,
                 Amount = request.Amount,
+                Currency = request.Currency,
                 CustomerEmail = request.CustomerEmail,
                 CallbackUrl = request.CallbackUrl,
                 ConfirmationPageUrl = request.ConfirmationPageUrl,
