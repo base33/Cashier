@@ -17,6 +17,7 @@ namespace Cashier.Models
         public string CallbackUrl { get; set; }
         public string AdditionalData { get; set; }
         public DateTime DirectDebitStartDate { get; set; }
+        public int DirectDebitFrequencyMonths { get; private set; }
         public string CustomerEmail { get; set; }
         public string CustomerUniqueReference { get; set; }
         public CustomerAddress CustomerAddress { get; set; }
@@ -39,7 +40,7 @@ namespace Cashier.Models
             return pi;
         }
 
-        public static PaymentIntentRequest CreateDirectDebit(string transactionReference, string description, double amount, string currency, DateTime directDebitStartDate, string customerEmail, string customerUniqueReference, CustomerAddress customerAddress, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData)
+        public static PaymentIntentRequest CreateDirectDebit(string transactionReference, string description, double amount, string currency, DateTime directDebitStartDate, int directDebitFrequencyMonths, string customerEmail, string customerUniqueReference, CustomerAddress customerAddress, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData)
         {
             var pi = new PaymentIntentRequest();
             pi.PaymentIntentType = PaymentIntentType.DirectDebit;
@@ -48,6 +49,7 @@ namespace Cashier.Models
             pi.TransactionReference = transactionReference;
             pi.Description = description;
             pi.DirectDebitStartDate = directDebitStartDate;
+            pi.DirectDebitFrequencyMonths = directDebitFrequencyMonths;
             pi.CustomerEmail = customerEmail;
             pi.CustomerUniqueReference = customerUniqueReference;
             pi.CustomerAddress = customerAddress;

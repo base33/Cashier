@@ -49,6 +49,16 @@ namespace Cashier.Data
 	                        ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
                         END
 
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'DirectDebitFrequencyMonths'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [DirectDebitFrequencyMonths] INT
+                        END
 
                     ");
             }

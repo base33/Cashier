@@ -114,7 +114,7 @@ namespace Cashier.Stripe.Controllers
                 return paymentIntent;
             }
 
-            var ddPriceName = "Direct Debit - " + paymentIntent.Amount;
+            var ddPriceName = $"Direct Debit - {paymentIntent.DirectDebitFrequencyMonths} Month{(paymentIntent.DirectDebitFrequencyMonths > 1 ? "s" : "")} - {paymentIntent.Amount}";
 
             var productService = new ProductService();
             var product = productService.List().FirstOrDefault(p => p.Description == "Direct Debit");
@@ -142,6 +142,7 @@ namespace Cashier.Stripe.Controllers
                     Recurring = new PriceRecurringOptions
                     {
                         Interval = "month",
+                        IntervalCount = paymentIntent.DirectDebitFrequencyMonths,
                         UsageType = "licensed"
                     }
                 });

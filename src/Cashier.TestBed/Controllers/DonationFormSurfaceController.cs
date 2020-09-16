@@ -59,7 +59,8 @@ namespace Cashier.TestBed.Controllers
                     "a constituent ID",
                     model.Amount,
                     "gbp",
-                    DateTime.UtcNow,
+                    DateTime.UtcNow.AddHours(3),
+                    3, //three months
                     "craig@mentordigital.co.uk",
                     "craig@mentordigital.co.uk",
                     new CustomerAddress { AddressLines = "Street", City= "Bristol", Country = "United Kingdom", Postcode = "BS13 2xs" },

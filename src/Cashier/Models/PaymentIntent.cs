@@ -30,6 +30,7 @@ namespace Cashier.Models
         public DateTime Updated { get; set; } = DateTime.Now;
         public string HandShake { get; set; }
         public string CustomerUniqueReference { get; set; }
+        public int DirectDebitFrequencyMonths { get; set; }
     }
 
     public enum PaymentIntentType 
