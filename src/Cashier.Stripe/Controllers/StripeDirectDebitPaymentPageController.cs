@@ -164,11 +164,20 @@ namespace Cashier.Stripe.Controllers
                         PostalCode = paymentIntent.CustomerPostcode
                     }
                 });
+            else
+            {
+                var paymentMethodService = new PaymentMethodService();
+                paymentMethodService.Attach(setupIntent.PaymentMethodId, new PaymentMethodAttachOptions
+                {
+                    Customer = customer.Id
+                });
+            }
 
             var subscriptionService = new SubscriptionService();
             var subscription = subscriptionService.Create(new SubscriptionCreateOptions
             {
                 Customer = customer.Id,
+                DefaultPaymentMethod = setupIntent.PaymentMethodId,
                 ProrationBehavior = "none",
                 BillingCycleAnchor = paymentIntent.DirectDebitStartDate,
                 Items = new List<SubscriptionItemOptions>

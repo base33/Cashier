@@ -59,7 +59,7 @@ namespace Cashier.TestBed.Controllers
                     "a constituent ID",
                     model.Amount,
                     "gbp",
-                    DateTime.UtcNow.AddHours(3),
+                    DateTime.UtcNow.AddHours(1).AddMinutes(5),
                     3, //three months
                     "craig@mentordigital.co.uk",
                     "craig@mentordigital.co.uk",
