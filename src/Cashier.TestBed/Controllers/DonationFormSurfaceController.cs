@@ -60,7 +60,8 @@ namespace Cashier.TestBed.Controllers
                     model.Amount,
                     "gbp",
                     DateTime.UtcNow.AddHours(1).AddMinutes(5),
-                    3, //three months
+                    PaymentFrequencyUnit.Day,
+                    1, //three months
                     "craig@mentordigital.co.uk",
                     "craig@mentordigital.co.uk",
                     new CustomerAddress { AddressLines = "Street", City= "Bristol", Country = "United Kingdom", Postcode = "BS13 2xs" },

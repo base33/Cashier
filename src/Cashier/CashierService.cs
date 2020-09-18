@@ -48,7 +48,8 @@ namespace Cashier
             if (request.PaymentIntentType == PaymentIntentType.DirectDebit)
             {
                 paymentIntent.DirectDebitStartDate = request.DirectDebitStartDate;
-                paymentIntent.DirectDebitFrequencyMonths = request.DirectDebitFrequencyMonths;
+                paymentIntent.DirectDebitFrequencyUnit = request.DirectDebitFrequencyUnit;
+                paymentIntent.DirectDebitFrequencyInterval = request.DirectDebitFrequencyInterval;
                 paymentIntent.CustomerAddressLines = request.CustomerAddress.AddressLines;
                 paymentIntent.CustomerCity = request.CustomerAddress.City;
                 paymentIntent.CustomerCountry = request.CustomerAddress.Country;

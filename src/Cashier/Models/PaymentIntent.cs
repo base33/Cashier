@@ -14,6 +14,8 @@ namespace Cashier.Models
         public double Amount { get; set; }
         public string Currency { get; set; }
         public DateTime? DirectDebitStartDate { get; set; } = null;
+        public PaymentFrequencyUnit DirectDebitFrequencyUnit { get; set; } = PaymentFrequencyUnit.Month;
+        public int DirectDebitFrequencyInterval { get; set; }
         public string CustomerEmail { get; set; }
         public string CustomerAddressLines { get; set; }
         public string CustomerCity { get; set; }
@@ -30,7 +32,6 @@ namespace Cashier.Models
         public DateTime Updated { get; set; } = DateTime.Now;
         public string HandShake { get; set; }
         public string CustomerUniqueReference { get; set; }
-        public int DirectDebitFrequencyMonths { get; set; }
     }
 
     public enum PaymentIntentType 
@@ -57,5 +58,16 @@ namespace Cashier.Models
         /// Not heard back or changed
         /// </summary>
         NothingYet = 4
+    }
+
+    /// <summary>
+    /// Day, Week, Month, or Year
+    /// </summary>
+    public enum PaymentFrequencyUnit
+    {
+        Day = 0,
+        Week = 1,
+        Month = 2,
+        Year = 3
     }
 }

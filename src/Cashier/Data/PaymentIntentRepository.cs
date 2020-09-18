@@ -49,7 +49,7 @@ namespace Cashier.Data
 	                        ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
                         END
 
-                    IF NOT EXISTS (
+                  /*  IF EXISTS (
                       SELECT * 
                       FROM   sys.columns 
                       WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
@@ -57,7 +57,29 @@ namespace Cashier.Data
                     )
                         BEGIN
                             ALTER TABLE PaymentIntents
-                            ADD [DirectDebitFrequencyMonths] INT
+                            DROP COLUMN [DirectDebitFrequencyMonths]
+                        END */
+
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'DirectDebitFrequencyUnit'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [DirectDebitFrequencyUnit] INT
+                        END
+
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'DirectDebitFrequencyInterval'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [DirectDebitFrequencyInterval] INT
                         END
 
                     ");

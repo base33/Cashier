@@ -114,7 +114,7 @@ namespace Cashier.Stripe.Controllers
                 return paymentIntent;
             }
 
-            var ddPriceName = $"Direct Debit - {paymentIntent.DirectDebitFrequencyMonths} Month{(paymentIntent.DirectDebitFrequencyMonths > 1 ? "s" : "")} - {paymentIntent.Amount}";
+            var ddPriceName = $"Direct Debit - {paymentIntent.DirectDebitFrequencyInterval} {Enum.GetName(typeof(PaymentFrequencyUnit), paymentIntent.DirectDebitFrequencyUnit)}{(paymentIntent.DirectDebitFrequencyInterval > 1 ? "s" : "")} - {paymentIntent.Amount}";
 
             var productService = new ProductService();
             var product = productService.List().FirstOrDefault(p => p.Description == "Direct Debit");
@@ -141,8 +141,8 @@ namespace Cashier.Stripe.Controllers
                     Currency = paymentIntent.Currency,
                     Recurring = new PriceRecurringOptions
                     {
-                        Interval = "month",
-                        IntervalCount = paymentIntent.DirectDebitFrequencyMonths,
+                        Interval = Enum.GetName(typeof(PaymentFrequencyUnit), paymentIntent.DirectDebitFrequencyUnit).ToLower(),
+                        IntervalCount = paymentIntent.DirectDebitFrequencyInterval,
                         UsageType = "licensed"
                     }
                 });
@@ -154,6 +154,7 @@ namespace Cashier.Stripe.Controllers
                 customer = customerService.Create(new CustomerCreateOptions
                 {
                     Name = paymentIntent.CustomerUniqueReference,
+                    Description = paymentIntent.CustomerUniqueReference,
                     PaymentMethod = setupIntent.PaymentMethodId,
                     Email = paymentIntent.CustomerEmail,
                     Address = new AddressOptions

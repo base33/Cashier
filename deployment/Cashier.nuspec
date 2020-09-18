@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
 	<metadata>
 		<id>Our.Umbraco.Cashier</id>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 		<title>Our.Umbraco.Cashier</title>
 		<authors>Craig Noble</authors>
 		<owners>Craig Noble</owners>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
 	<metadata>
 		<id>Our.Umbraco.Cashier.Stripe</id>
-		<version>1.0.0</version>
+		<version>1.0.2</version>
 		<title>Our.Umbraco.Cashier.Stripe</title>
 		<authors>Craig Noble</authors>
 		<owners>Craig Noble</owners>
