@@ -44,7 +44,7 @@ namespace Cashier.Stripe.Composers
             RouteTable.Routes.MapUmbracoRoute("Stripe Direct Debit Failure Page", "stripe-dd-failure", new
             {
                 controller = "StripeDirectDebitPaymentPage",
-                action = "Success",
+                action = "Failure",
                 id = UrlParameter.Optional
             }, new UmbracoVirtualNodeByIdRouteHandler(int.Parse(ConfigurationManager.AppSettings["Cashier:Stripe:DirectDebitPaymentPageVirtualNode"])));
         }
