@@ -82,6 +82,17 @@ namespace Cashier.Data
                             ADD [DirectDebitFrequencyInterval] INT
                         END
 
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'Currency'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [Currency] nvarchar(50)
+                        END
+
                     ");
             }
         }

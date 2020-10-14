@@ -47,7 +47,7 @@ namespace Cashier.Stripe.Controllers
                 //    SetupFutureUsage = "off_session",
                 //    ReceiptEmail = paymentIntent.CustomerEmail
                 //},
-                CustomerEmail = paymentIntent.CustomerEmail,
+                //CustomerEmail = paymentIntent.CustomerEmail,
                 BillingAddressCollection = "auto",
                 //LineItems = new List<SessionLineItemOptions>
                 //{
