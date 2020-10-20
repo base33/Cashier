@@ -179,7 +179,7 @@ namespace Cashier.Stripe.Controllers
             {
                 Customer = customer.Id,
                 DefaultPaymentMethod = setupIntent.PaymentMethodId,
-                ProrationBehavior = "none",
+                //ProrationBehavior = "none",
                 BillingCycleAnchor = paymentIntent.DirectDebitStartDate,
                 Items = new List<SubscriptionItemOptions>
                 {
