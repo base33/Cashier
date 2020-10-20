@@ -17,6 +17,7 @@ namespace Cashier.Models
         public string CallbackUrl { get; set; }
         public string AdditionalData { get; set; }
         public DateTime DirectDebitStartDate { get; set; }
+        public DateTime? DirectDebitTrialDateEnd { get; set; }
         public PaymentFrequencyUnit DirectDebitFrequencyUnit { get; set; } = PaymentFrequencyUnit.Month;
         public int DirectDebitFrequencyInterval { get; set; }
         public string CustomerEmail { get; set; }
@@ -41,7 +42,7 @@ namespace Cashier.Models
             return pi;
         }
 
-        public static PaymentIntentRequest CreateDirectDebit(string transactionReference, string description, double amount, string currency, DateTime directDebitStartDate, PaymentFrequencyUnit directDebitFrequencyUnit, int directDebitFrequencyInterval, string customerEmail, string customerUniqueReference, CustomerAddress customerAddress, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData)
+        public static PaymentIntentRequest CreateDirectDebit(string transactionReference, string description, double amount, string currency, DateTime directDebitStartDate, PaymentFrequencyUnit directDebitFrequencyUnit, int directDebitFrequencyInterval, string customerEmail, string customerUniqueReference, CustomerAddress customerAddress, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData, DateTime? directDebitTrialDateEnd = null)
         {
             var pi = new PaymentIntentRequest();
             pi.PaymentIntentType = PaymentIntentType.DirectDebit;
@@ -59,6 +60,7 @@ namespace Cashier.Models
             pi.FailurePageUrl = failurePageUrl;
             pi.CallbackUrl = callbackUrl;
             pi.AdditionalData = additionalData;
+            pi.DirectDebitTrialDateEnd = directDebitTrialDateEnd;
             return pi;
         }
 

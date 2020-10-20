@@ -93,6 +93,18 @@ namespace Cashier.Data
                             ADD [Currency] nvarchar(50)
                         END
 
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'DirectDebitTrialDateEnd'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [DirectDebitTrialDateEnd] [datetime2](7) NULL
+                        END
+
+
                     ");
             }
         }

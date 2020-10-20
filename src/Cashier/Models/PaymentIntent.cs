@@ -14,6 +14,7 @@ namespace Cashier.Models
         public double Amount { get; set; }
         public string Currency { get; set; }
         public DateTime? DirectDebitStartDate { get; set; } = null;
+        public DateTime? DirectDebitTrialDateEnd { get; set; }
         public PaymentFrequencyUnit DirectDebitFrequencyUnit { get; set; } = PaymentFrequencyUnit.Month;
         public int DirectDebitFrequencyInterval { get; set; }
         public string CustomerEmail { get; set; }

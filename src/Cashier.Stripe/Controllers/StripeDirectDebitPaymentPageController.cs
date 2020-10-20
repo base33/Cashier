@@ -175,7 +175,7 @@ namespace Cashier.Stripe.Controllers
             }
 
             var subscriptionService = new SubscriptionService();
-            var subscription = subscriptionService.Create(new SubscriptionCreateOptions
+            var subscriptionCreate = new SubscriptionCreateOptions
             {
                 Customer = customer.Id,
                 DefaultPaymentMethod = setupIntent.PaymentMethodId,
@@ -188,7 +188,12 @@ namespace Cashier.Stripe.Controllers
                         Price = price.Id
                     }
                 }
-            });
+            };
+            if(paymentIntent.DirectDebitTrialDateEnd.HasValue)
+            {
+                subscriptionCreate.TrialEnd = paymentIntent.DirectDebitTrialDateEnd;
+            }
+            var subscription = subscriptionService.Create(subscriptionCreate);
 
             paymentIntent.PaymentStatus = PaymentStatus.Succeeded;
             PaymentService.UpdatePaymentStatus(paymentIntent.TransactionReference, subscription.Id, PaymentStatus.Succeeded);
