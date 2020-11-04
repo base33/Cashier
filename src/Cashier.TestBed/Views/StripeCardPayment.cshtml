@@ -20,7 +20,11 @@
                         <span>Card</span>
                         <div id="card-number"></div>
                         <div id="card-expiry"></div>
-                        <div id="card-cvc"></div>
+                        @if (!ViewBag.PaymentIntent.MotoMode)
+                        {
+                            <div id="card-cvc"></div>
+                        }
+
                     </label>
                     <button type="submit" class="btn btn-success">Pay</button>
                 </form>
@@ -68,22 +72,44 @@
     var cardExpiry = elements.create('cardExpiry');
     cardExpiry.mount('#card-expiry');
 
-    var cardCvc = elements.create('cardCvc');
-    cardCvc.mount('#card-cvc');
+    @if (!ViewBag.PaymentIntent.MotoMode)
+    {
+        @:var cardCvc = elements.create('cardCvc');
+        @:cardCvc.mount('#card-cvc');
+    }
 
     function setOutcome(result) {
+        @if (ViewBag.PaymentIntent.MotoMode)
+        {
+            @:document.getElementById('StripePaymentIntentId').value = result.paymentMethod.id;
+        }
+
         document.getElementById('callback-form').submit();
     }
 
-
     document.getElementById('stripe-payment').addEventListener('submit', function (e) {
         e.preventDefault();
-        //stripe.createToken(card).then(setOutcome);
-        stripe.confirmCardPayment('@ViewBag.ClientSecret', {
-            payment_method: {
-                card: cardNumber
-            }
-        }).then(setOutcome)
+
+        @if(ViewBag.PaymentIntent.MotoMode)
+        {
+            <text>
+                stripe.createPaymentMethod({
+                    type: 'card',
+                    card: cardNumber
+                }).then(setOutcome)
+            </text>
+        }
+        else
+        {
+            <text>
+                stripe.confirmCardPayment('@ViewBag.ClientSecret', {
+                    payment_method: {
+                        card: cardNumber
+                    }
+                }).then(setOutcome)
+            </text>
+        }
+
     });
 
     //https://jsfiddle.net/ywain/5yz4z2yn/

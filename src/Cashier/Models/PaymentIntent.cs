@@ -33,6 +33,8 @@ namespace Cashier.Models
         public DateTime Updated { get; set; } = DateTime.Now;
         public string HandShake { get; set; }
         public string CustomerUniqueReference { get; set; }
+        public DateTime? DirectDebitTrailDateStart { get; set; }
+        public bool? MotoMode { get; set; }
     }
 
     public enum PaymentIntentType 

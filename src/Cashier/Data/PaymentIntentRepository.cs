@@ -104,6 +104,16 @@ namespace Cashier.Data
                             ADD [DirectDebitTrialDateEnd] [datetime2](7) NULL
                         END
 
+                    IF NOT EXISTS (
+                      SELECT * 
+                      FROM   sys.columns 
+                      WHERE  object_id = OBJECT_ID(N'[dbo].[PaymentIntents]') 
+                             AND name = 'MotoMode'
+                    )
+                        BEGIN
+                            ALTER TABLE PaymentIntents
+                            ADD [MotoMode] [bit] NULL
+                        END
 
                     ");
             }

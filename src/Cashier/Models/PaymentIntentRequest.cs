@@ -23,10 +23,11 @@ namespace Cashier.Models
         public string CustomerEmail { get; set; }
         public string CustomerUniqueReference { get; set; }
         public CustomerAddress CustomerAddress { get; set; }
+        public bool MotoMode { get; set; }
 
         public PaymentIntentType PaymentIntentType { get; set; }
 
-        public static PaymentIntentRequest CreateCardPayment(string transactionReference, string description, double amount, string currency, string customerEmail, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData)
+        public static PaymentIntentRequest CreateCardPayment(string transactionReference, string description, double amount, string currency, string customerEmail, string confirmationPageUrl, string failurePageUrl, string callbackUrl, string additionalData, bool motoMode = false)
         {
             var pi = new PaymentIntentRequest();
             pi.PaymentIntentType = PaymentIntentType.Card;
@@ -39,6 +40,7 @@ namespace Cashier.Models
             pi.FailurePageUrl = failurePageUrl;
             pi.CallbackUrl = callbackUrl;
             pi.AdditionalData = additionalData;
+            pi.MotoMode = motoMode;
             return pi;
         }
 

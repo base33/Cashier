@@ -26,27 +26,52 @@ namespace Cashier.Stripe.Controllers
 
             StripeConfiguration.ApiKey = ConfigurationManager.AppSettings["Cashier:Stripe:Secret"];
 
-            //create the payment intent in STRIPE
-            var stripePI = new PaymentIntentCreateOptions
+            string intentId = "";
+            string intentClientSecret = "";
+
+            if (paymentIntent.MotoMode == true)
             {
-                Amount = (long)paymentIntent.Amount * 100,
-                Currency = paymentIntent.Currency,
-                PaymentMethodTypes = new List<string>
+                var serviceSI = new SetupIntentService();
+                var setup = serviceSI.Create(new SetupIntentCreateOptions
                 {
-                    "card"
-                },
-                Description = paymentIntent.Description
-            };
+                    PaymentMethodTypes = new List<string>
+                    {
+                        "card"
+                    },
+                    Metadata = new Dictionary<string, string>
+                    {
+                        { "TransactionReference", paymentIntent.TransactionReference }
+                    }
+                });
+                intentId = setup.Id;
+                intentClientSecret = setup.ClientSecret;
+            }
+            else
+            {
+                var servicePI = new PaymentIntentService();
+                var createPI = new PaymentIntentCreateOptions
+                {
+                    Amount = (long)paymentIntent.Amount * 100,
+                    Currency = paymentIntent.Currency,
+                    PaymentMethodTypes = new List<string>
+                    {
+                        "card"
+                    },
+                    Description = paymentIntent.Description
+                };
+                createPI.Metadata = new Dictionary<string, string>
+                {
+                    { "TransactionReference", paymentIntent.TransactionReference }
+                };
+                var responsePI = servicePI.Create(createPI);
+                intentId = responsePI.Id;
+                intentClientSecret = responsePI.ClientSecret;
+            }
 
-            stripePI.Metadata = new Dictionary<string, string>();
-            stripePI.Metadata["TransactionReference"] = paymentIntent.TransactionReference;
-
-            var service = new PaymentIntentService();
-            var response = service.Create(stripePI);
-
+            ViewBag.PaymentIntent = paymentIntent;
             ViewBag.TransactionReference = paymentIntent.TransactionReference;
-            ViewBag.ClientSecret = response.ClientSecret;
-            ViewBag.StripePaymentIntentId = response.Id;
+            ViewBag.ClientSecret = intentClientSecret;
+            ViewBag.StripePaymentIntentId = intentId;
             ViewBag.TestMode = ConfigurationManager.AppSettings["Cashier:Stripe:LiveMode"].ToLower() == "false";
 
             return View("StripeCardPayment", CurrentPage);

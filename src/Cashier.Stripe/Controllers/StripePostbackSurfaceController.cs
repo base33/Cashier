@@ -1,5 +1,6 @@
 ﻿using Cashier.Models;
 using Stripe;
+using ExStripe = Stripe;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -25,10 +26,39 @@ namespace Cashier.Stripe.Controllers
         {
             StripeConfiguration.ApiKey = ConfigurationManager.AppSettings["Cashier:Stripe:Secret"];
 
-            var service = new PaymentIntentService();
-            var stripePI = service.Get(model.StripePaymentIntentId);
-
             var paymentIntent = PaymentService.GetPaymentIntentByTransactionRef(model.TransactionReference);
+            var service = new PaymentIntentService();
+
+            ExStripe.PaymentIntent stripePI = null;
+            if (paymentIntent.MotoMode == true)
+            {
+                //if it's a moto payment, we need to create the payment intent from 
+                var servicePM = new PaymentMethodService();
+                var paymentMethod = servicePM.Get(model.StripePaymentIntentId);
+                var piCreate = new PaymentIntentCreateOptions
+                {
+                    Amount = (long)paymentIntent.Amount * 100,
+                    Currency = paymentIntent.Currency,
+                    Description = paymentIntent.Description,
+                    Confirm = true,
+                    PaymentMethod = model.StripePaymentIntentId,
+                    PaymentMethodOptions = new PaymentIntentPaymentMethodOptionsOptions
+                    {
+                        Card = new PaymentIntentPaymentMethodOptionsCardOptions
+                        {
+                            Moto = true
+                        }
+                    }
+                };
+                piCreate.Metadata = new Dictionary<string, string>
+                {
+                    { "TransactionReference", paymentIntent.TransactionReference }
+                };
+                stripePI = service.Create(piCreate);
+            }
+
+            
+            stripePI = stripePI ?? service.Get(model.StripePaymentIntentId);
 
             if (stripePI.Status == "succeeded" && stripePI.Metadata["TransactionReference"] == model.TransactionReference)
             {

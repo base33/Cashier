@@ -42,7 +42,8 @@ namespace Cashier
                 AdditionalData = request.AdditionalData,
                 HandShake = Guid.NewGuid().ToString(),
                 PaymentStatus = PaymentStatus.NothingYet,
-                PaymentIntentType = request.PaymentIntentType
+                PaymentIntentType = request.PaymentIntentType,
+                MotoMode = request.MotoMode
             };
 
             if (request.PaymentIntentType == PaymentIntentType.DirectDebit)
