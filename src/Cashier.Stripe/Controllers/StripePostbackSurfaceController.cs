@@ -55,6 +55,7 @@ namespace Cashier.Stripe.Controllers
                     { "TransactionReference", paymentIntent.TransactionReference }
                 };
                 stripePI = service.Create(piCreate);
+                model.StripePaymentIntentId = stripePI.Id;
             }
 
             

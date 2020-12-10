@@ -179,7 +179,6 @@ namespace Cashier.Stripe.Controllers
             {
                 Customer = customer.Id,
                 DefaultPaymentMethod = setupIntent.PaymentMethodId,
-                //ProrationBehavior = "none",
                 BillingCycleAnchor = paymentIntent.DirectDebitStartDate,
                 Items = new List<SubscriptionItemOptions>
                 {
@@ -191,7 +190,13 @@ namespace Cashier.Stripe.Controllers
             };
             if(paymentIntent.DirectDebitTrialDateEnd.HasValue)
             {
+                //let the trial date specify the days that should not be charged
                 subscriptionCreate.TrialEnd = paymentIntent.DirectDebitTrialDateEnd;
+            }
+            else
+            {
+                //otherwise let it start on the anchor date and disable proration
+                subscriptionCreate.ProrationBehavior = "none";
             }
             var subscription = subscriptionService.Create(subscriptionCreate);
 
