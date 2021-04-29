@@ -16,7 +16,7 @@
     </dependencies>
   </metadata>
 	<files>
-		<file src="..\src\Cashier.Stripe\bin\debug\Cashier.Stripe.dll" target="lib" />
+		<file src="..\src\Cashier.Stripe\bin\release\Cashier.Stripe.dll" target="lib" />
 		<file src="..\src\Cashier.TestBed\Views\StripeCardPayment.cshtml" target="content\views" />
 		<file src="..\src\Cashier.TestBed\Views\StripeDirectDebitPayment.cshtml" target="content\views" />
 		<file src="..\src\Cashier.Stripe\Web.config.install.xdt" target="content" />
