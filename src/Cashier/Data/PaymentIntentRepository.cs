@@ -27,7 +27,7 @@ namespace Cashier.Data
 		                        [Id] [int] IDENTITY(1,1) NOT NULL,
 		                        [TransactionReference] [nvarchar](max) NOT NULL,
 		                        [Description] [nvarchar](max) NULL,
-		                        [Amount] [decimal](18, 0) NOT NULL,
+		                        [Amount] [decimal](18, 2) NOT NULL,
                                 [Currency] [nvarchar](max) NULL,
 		                        [DirectDebitStartDate] [datetime2](7) NULL,
 		                        [CustomerEmail] [nvarchar](max) NULL,
