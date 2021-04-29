@@ -115,6 +115,16 @@ namespace Cashier.Data
                             ADD [MotoMode] [bit] NULL
                         END
 
+		IF NOT EXISTS (
+		    SELECT COLUMN_NAME, DATA_TYPE, NUMERIC_SCALE
+			FROM INFORMATION_SCHEMA.COLUMNS 
+			WHERE TABLE_NAME = 'PaymentIntents'
+			AND COLUMN_NAME = 'Amount' AND DATA_TYPE = 'decimal' AND NUMERIC_SCALE = '2'
+		)
+		    BEGIN
+			alter table PaymentIntents ALTER COLUMN Amount decimal(18,2)
+		    END
+
                     ");
             }
         }
