@@ -18,7 +18,7 @@
     </dependencies>
   </metadata>
 	<files>
-		<file src="..\src\Cashier\bin\debug\cashier.dll" target="lib" />
+		<file src="..\src\Cashier\bin\release\cashier.dll" target="lib" />
 		<file src="..\src\Cashier.TestBed\App_Plugins\cashier\**\*" target="content\app_plugins\cashier" />
 		<file src="..\src\Cashier\Web.config.install.xdt" target="content" />
 	</files>
