@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cashier.TestBed", "Cashier.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Tools", "_Tools", "{5CDA9A26-B0CC-4FBC-81F6-C8C66FA7AF2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cashier.StripePaymentIntentFix", "Cashier.StripePaymentIntentFix\Cashier.StripePaymentIntentFix.csproj", "{45E51165-1D74-4204-9F7C-6CB4FDF32EA1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,17 +31,12 @@ Global
 		{FA9938E8-4A9E-4007-BA2B-C8EBBA40225C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA9938E8-4A9E-4007-BA2B-C8EBBA40225C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA9938E8-4A9E-4007-BA2B-C8EBBA40225C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45E51165-1D74-4204-9F7C-6CB4FDF32EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45E51165-1D74-4204-9F7C-6CB4FDF32EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45E51165-1D74-4204-9F7C-6CB4FDF32EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45E51165-1D74-4204-9F7C-6CB4FDF32EA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1B6DCD78-D9FF-4169-8B15-33B19F25E9D2} = {ABD2CCB4-98D4-4B90-9550-72F702296F5B}
-		{45E51165-1D74-4204-9F7C-6CB4FDF32EA1} = {5CDA9A26-B0CC-4FBC-81F6-C8C66FA7AF2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1288AC8-2E47-44AA-BA0D-DC49A88124F4}
