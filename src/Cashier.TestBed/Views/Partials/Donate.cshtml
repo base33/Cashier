@@ -5,6 +5,11 @@
         @using (Html.BeginUmbracoForm("HandleDonationForm", "DonationFormSurface"))
         {
             <div>
+                @Html.LabelFor(m => m.DonationType)
+                @Html.RadioButtonFor(m => m.DonationType, "Single") Single<br/>
+                @Html.RadioButtonFor(m => m.DonationType, "Regular") Regular
+            </div>
+            <div>
                 @Html.LabelFor(m => m.Amount)
                 @Html.TextBoxFor(m => m.Amount)
             </div>
