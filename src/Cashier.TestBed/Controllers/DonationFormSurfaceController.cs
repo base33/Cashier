@@ -39,7 +39,7 @@ namespace Cashier.TestBed.Controllers
             string jsonDonation = JsonConvert.SerializeObject(model);
 
             PaymentIntentRequest paymentIntentRequest;
-            model.DonationType = "Regular";
+            //model.DonationType = "Regular";
 
             if (model.DonationType == "Single")
                 paymentIntentRequest = PaymentIntentRequest.CreateCardPayment(
@@ -51,7 +51,8 @@ namespace Cashier.TestBed.Controllers
                     CurrentPage.Url,
                      Umbraco.Content(1148).Url,
                     "/umbraco/surface/DonationFormSurface/HandleCallback",
-                    jsonDonation
+                    jsonDonation,
+                    motoMode: true
                 );
             else
                 paymentIntentRequest = PaymentIntentRequest.CreateDirectDebit(
