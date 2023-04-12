@@ -27,6 +27,12 @@
 
                     </label>
                     <button type="submit" class="btn btn-success">Pay</button>
+                    <div class="dynamic-pay-button" style="width: 50%;">
+                        <div class="itemSeparator" style="padding: 10px;">Or</div>
+                        <div id="payment-request-button" style="padding: 0px; margin: 0px;">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                    </div>
                 </form>
             </article>
             @if (ViewBag.TestMode)
@@ -65,6 +71,31 @@
             },
         ]
     });
+
+    const paymentRequest = stripe.paymentRequest({
+        country: 'GB',
+        currency: '@ViewBag.PaymentIntent.Currency',
+        total: {
+            label: 'Total',
+            amount: @ViewBag.PaymentIntent.Amount * 100,
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+    });
+
+    const prButton = elements.create('paymentRequestButton', {
+        paymentRequest,
+    });
+
+    (async () => {
+        const result = await paymentRequest.canMakePayment();
+        if (result) {
+            prButton.mount('#payment-request-button');
+        } else {
+            document.getElementById('dynamic-pay-button').style.display = 'none';
+            document.getElementById('payment-request-button').style.display = 'none';
+        }
+    })();
 
     var cardNumber = elements.create('cardNumber');
     cardNumber.mount('#card-number');
@@ -110,6 +141,24 @@
             </text>
         }
 
+    });
+
+    paymentRequest.on('paymentmethod', async (e) => {
+        const { error, paymentIntent } = await stripe.confirmCardPayment('@ViewBag.ClientSecret', {
+            payment_method: e.paymentMethod.id
+        }, { handleActions: false });					//By default, .confirmCardPayment() will handle any additional actions required to complete
+  								                        // the payment, eg open a Modal to complete 3d secure, or redirect to a bank for auth pwd
+									                    // Setting handleActions: false tells it not to do this while we're confirming payment
+
+        if (error) {
+            e.complete('fail');
+        }
+
+        if (paymentIntent.status == 'requires_action') {		        // PaymentIntent showed payment will be ok
+            stripe.confirmCardPayment('@ViewBag.ClientSecret');			// make a 2nd call using the clientSecret and DON'T set handleActions:false
+        }
+
+        document.getElementById('callback-form').submit();
     });
 
     //https://jsfiddle.net/ywain/5yz4z2yn/
