@@ -52,7 +52,7 @@ namespace Cashier.TestBed.Controllers
                      Umbraco.Content(1148).Url,
                     "/umbraco/surface/DonationFormSurface/HandleCallback",
                     jsonDonation,
-                    motoMode: true
+                    motoMode: false
                 );
             else
                 paymentIntentRequest = PaymentIntentRequest.CreateDirectDebit(
