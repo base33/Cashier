@@ -158,10 +158,13 @@
             stripe.confirmCardPayment('@ViewBag.ClientSecret');			// make a 2nd call using the clientSecret and DON'T set handleActions:false
         }
 
-        document.getElementById('callback-form').submit();
+        e.complete('success');
+        SubmitForm();
     });
 
-    //https://jsfiddle.net/ywain/5yz4z2yn/
+        async function SubmitForm() {
+            document.getElementById('callback-form').submit();
+        }
 </script>
 
 <style type="text/css">
